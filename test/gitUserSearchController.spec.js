@@ -1,5 +1,5 @@
 describe('GitUserSearchController', function() {
-  beforeEach(module('GitUserSearch'));
+  beforeEach(module('GitUserSearch')); // STANDUP QUESTION MOCK MODULE???? WHAT????
 
   var ctrl;
 
@@ -20,7 +20,7 @@ describe('GitUserSearchController', function() {
       httpBackend
         .expectGET("https://api.github.com/search/users?access_token=" + access_token + "&q=hello" )
         .respond(
-          { items: items }
+          { response: items }
         );
     }));
 
@@ -46,7 +46,7 @@ describe('GitUserSearchController', function() {
       ctrl.searchTerm = 'hello';
       ctrl.doSearch();
       httpBackend.flush();
-      expect(ctrl.searchResult.items).toEqual(items);
+      expect(ctrl.searchResult.response).toEqual(items);
     });
   });
 });

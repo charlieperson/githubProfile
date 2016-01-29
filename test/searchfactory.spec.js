@@ -16,10 +16,6 @@ describe('factory: Search', function() {
       );
   }));
 
-  it('responds to query', function() {
-    expect(search.query).toBeDefined();
-  });
-
   it('returns search results', function() {
     search.query('hello')
       .then(function(response) {
